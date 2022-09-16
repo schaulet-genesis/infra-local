@@ -397,7 +397,7 @@ def main():
     client = None
     try:
         client = docker.Client(args.docker, version='auto', tls=tls_config)
-    except docker.errors.TLSParameterError, e:
+    except docker.errors.TLSParameterError as e:
         log('Docker error: %s' % e)
         sys.exit(1)
     monitor = DockerMonitor(client, table, args.domain)
